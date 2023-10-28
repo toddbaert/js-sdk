@@ -21,7 +21,7 @@ jobs:
           cache: 'npm'
 
       - name: Attempt @openfeature/core Update
-        run: gh pr list --search '"release core" in:title'
+        run: gh pr list --search '"release core" in:title' # also check branch?
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
