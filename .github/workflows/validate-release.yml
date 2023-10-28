@@ -3,6 +3,9 @@ on:
     branches:
       - 'release-please**'
 
+env:
+  CORE_PACKAGE: core
+
 name: Validate Release
 jobs:
   npm-release:
@@ -20,9 +23,23 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           cache: 'npm'
 
+      - name: asd
+        run: gh pr list --search '"release ${{ env.CORE_PACKAGE }}" in:title' | wc -l
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: dsa
+        run: gh pr list --search '"release ${{ env.CORE_PACKAGE }}" in:title'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Attempt @openfeature/core Update
-        run: | # also check branch?
-          gh pr list --search --json '"release core" in:title'
+        if: ${{ !endsWith(github.ref_name, env.CORE_PACKAGE) }}
+        run: |
+          if [ $(gh pr list --search '"release ${{ env.CORE_PACKAGE }}" in:title' | wc -l) -gt 0 ]; \
+            then echo "Pending @openfeaure/${{ env.CORE_PACKAGE }} release. Please release @openfeaure/${{ env.CORE_PACKAGE }} first!" && exit 1; \
+            else echo "No pending @openfeaure/${{ env.CORE_PACKAGE }} releases"; \
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
