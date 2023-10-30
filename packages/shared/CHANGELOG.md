@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.13](https://github.com/toddbaert/js-sdk/compare/core-v0.0.12...core-v0.0.13) (2023-10-30)
+
+
+### Features
+
+* add support for clearing providers ([#578](https://github.com/toddbaert/js-sdk/issues/578)) ([a3a907f](https://github.com/toddbaert/js-sdk/commit/a3a907f348d7ff2ac7cd42eca61cd760fdd93048))
+* extract core module ([79788d5](https://github.com/toddbaert/js-sdk/commit/79788d5072c204d433b310e34fa0a3e45ebabcce))
+
 ## [0.0.12](https://github.com/open-feature/js-sdk/compare/shared-v0.0.11...shared-v0.0.12) (2023-10-09)
 
 
