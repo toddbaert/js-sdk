@@ -1,6 +1,6 @@
 {
   "name": "@openfeature/core",
-  "version": "1.0.0",
+  "version": "0.0.13",
   "description": "Shared js components (server and web)",
   "main": "./dist/cjs/index.js",
   "files": [
