@@ -49,10 +49,10 @@
     "node": ">=16"
   },
   "peerDependencies": {
-    "@openfeature/core": "^1.0.0"
+    "@openfeature/core": "^0.1.0"
   },
   "devDependencies": {
-    "@openfeature/core": "1.0.0"
+    "@openfeature/core": "*"
   },
   "typedoc": {
     "displayName": "OpenFeature Server SDK",
