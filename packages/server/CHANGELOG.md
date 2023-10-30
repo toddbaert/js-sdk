@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.7.0](https://github.com/toddbaert/js-sdk/compare/server-sdk-v1.6.3...server-sdk-v1.7.0) (2023-10-30)
+
+
+### Features
+
+* add support for clearing providers ([#578](https://github.com/toddbaert/js-sdk/issues/578)) ([a3a907f](https://github.com/toddbaert/js-sdk/commit/a3a907f348d7ff2ac7cd42eca61cd760fdd93048))
+* extract core module ([79788d5](https://github.com/toddbaert/js-sdk/commit/79788d5072c204d433b310e34fa0a3e45ebabcce))
+
+
+### Bug Fixes
+
+* package in readme installs/examples ([#595](https://github.com/toddbaert/js-sdk/issues/595)) ([3a15cb2](https://github.com/toddbaert/js-sdk/commit/3a15cb21dc60cd9ac0c0c57839532b6ee7ea1c15))
+* publish as @openfeature/server-sdk ([#593](https://github.com/toddbaert/js-sdk/issues/593)) ([1fdebc4](https://github.com/toddbaert/js-sdk/commit/1fdebc4777916e81e4b5feac286941c7d4b5bf13))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * @openfeature/core bumped from * to 0.0.13
+
 ## [1.6.3](https://github.com/open-feature/js-sdk/compare/server-sdk-v1.6.2...server-sdk-v1.6.3) (2023-10-11)
 
 
