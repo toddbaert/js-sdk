@@ -3,17 +3,16 @@ on:
     branches:
       - 'release-please**'
   schedule:
-    - cron: '0 * * * *'
+    - cron: '33 * * * *'
 
 env:
   CORE_PACKAGE: core
 
-name: Validate Release
+name: Audit Pending Releases
 jobs:
   npm-release:
     runs-on: ubuntu-latest
     steps:
-      # The logic below handles the npm publication:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.ref }}
@@ -40,6 +39,8 @@ jobs:
         run: |
           npm run update-core-peers && \
           git diff-files --quiet && exit 0 || git add --all && \
+          git config user.name "openfeature-peer-update-bot"
+          git config user.email "openfeature-peer-update-bot@openfeature.dev"
           git commit -m 'chore: bump @openfeaure/${{ env.CORE_PACKAGE }} peer' -s && \
           git push
         env:
