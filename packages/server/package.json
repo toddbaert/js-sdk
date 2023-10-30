@@ -52,7 +52,7 @@
     "@openfeature/core": "^0.0.13"
   },
   "devDependencies": {
-    "@openfeature/core": "*"
+    "@openfeature/core": "^0.0.13"
   },
   "typedoc": {
     "displayName": "OpenFeature Server SDK",
