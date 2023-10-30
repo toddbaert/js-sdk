@@ -41,7 +41,7 @@ jobs:
           npm run update-core-peers
           if git diff-files --quiet; \
             then exit 0; \
-            else git config user.name "openfeature-peer-update-bot" && \
+          else git config user.name "openfeature-peer-update-bot" && \
             git config user.email "openfeature-peer-update-bot@openfeature.dev" && \
             git commit -m 'chore: bump @openfeaure/${{ env.CORE_PACKAGE }} peer' -s && \
             git push; \
