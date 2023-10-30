@@ -47,10 +47,10 @@
   },
   "homepage": "https://github.com/open-feature/js-sdk#readme",
   "peerDependencies": {
-    "@openfeature/core": "0.1.0"
+    "@openfeature/core": "*"
   },
   "devDependencies": {
-    "@openfeature/core": "0.1.0"
+    "@openfeature/core": "*"
   },
   "typedoc": {
     "displayName": "OpenFeature Web SDK",
