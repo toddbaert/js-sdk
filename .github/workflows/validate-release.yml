@@ -23,17 +23,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           cache: 'npm'
 
-      - name: asd
-        run: gh pr list --search '"release ${{ env.CORE_PACKAGE }}" in:title' | wc -l
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: dsa
-        run: gh pr list --search '"release ${{ env.CORE_PACKAGE }}" in:title'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Attempt @openfeature/core Update
+      - name: Check for Pending Dependency PRs
         if: ${{ !endsWith(github.ref_name, env.CORE_PACKAGE) }}
         run: |
           if [ $(gh pr list --search '"release ${{ env.CORE_PACKAGE }}" in:title' | wc -l) -gt 0 ]; \
@@ -43,7 +33,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Push changes
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   run: git push
+      - name: Update Peer Version in Dependants
+        if: ${{ endsWith(github.ref_name, env.CORE_PACKAGE) }}
+        run: |
+          npm run update-core-peers && \
+          git diff-files --quiet && exit 0 || git add --all && \
+          git commit -m 'chore: bump @openfeaure/${{ env.CORE_PACKAGE }} peer' -s && \
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
