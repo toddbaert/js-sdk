@@ -1,6 +1,21 @@
 # Changelog
 
 
+## [0.4.2](https://github.com/toddbaert/js-sdk/compare/web-sdk-v0.4.1...web-sdk-v0.4.2) (2023-10-30)
+
+
+### Features
+
+* add support for clearing providers ([#578](https://github.com/toddbaert/js-sdk/issues/578)) ([a3a907f](https://github.com/toddbaert/js-sdk/commit/a3a907f348d7ff2ac7cd42eca61cd760fdd93048))
+* extract core module ([79788d5](https://github.com/toddbaert/js-sdk/commit/79788d5072c204d433b310e34fa0a3e45ebabcce))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * @openfeature/core bumped from * to 0.0.13
+
 ## [0.4.1](https://github.com/open-feature/js-sdk/compare/web-sdk-v0.4.0...web-sdk-v0.4.1) (2023-10-09)
 
 
