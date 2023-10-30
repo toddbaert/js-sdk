@@ -38,12 +38,14 @@ jobs:
       - name: Update Peer Version in Dependants
         if: ${{ endsWith(github.ref_name, env.CORE_PACKAGE) }}
         run: |
-          npm run update-core-peers && \
-          git diff-files --quiet && exit 0 || ( git add --all && \
-          git config user.name "openfeature-peer-update-bot" && \
-          git config user.email "openfeature-peer-update-bot@openfeature.dev" && \
-          git commit -m 'chore: bump @openfeaure/${{ env.CORE_PACKAGE }} peer' -s && \
-          git push )
+          npm run update-core-peers
+          if git diff-files --quiet; \
+            then exit 0; \
+            else git config user.name "openfeature-peer-update-bot" && \
+            git config user.email "openfeature-peer-update-bot@openfeature.dev" && \
+            git commit -m 'chore: bump @openfeaure/${{ env.CORE_PACKAGE }} peer' -s && \
+            git push; \
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
